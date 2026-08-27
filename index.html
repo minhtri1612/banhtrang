@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bánh Tráng Sài Gòn – Bánh Tráng Trộn Chuẩn Vị Đường Phố</title>
+    <meta name="description" content="Bánh Tráng Sài Gòn – Thương hiệu bánh tráng trộn số 1 Sài Gòn. 3 hương vị đặc trưng: Cổ Điển, Cay Nồng, Phô Mai. Nguyên liệu sạch, giao hàng tận nơi.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['"Playfair Display"', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand': {
+                            50: '#FFF7ED',
+                            100: '#FFEDD5',
+                            200: '#FED7AA',
+                            300: '#FDBA74',
+                            400: '#FB923C',
+                            500: '#F97316',
+                            600: '#EA580C',
+                            700: '#C2410C',
+                            800: '#9A3412',
+                            900: '#7C2D12',
+                        },
+                        'warm': {
+                            50: '#FFFBEB',
+                            100: '#FEF3C7',
+                            200: '#FDE68A',
+                            cream: '#FFF8F0',
+                            dark: '#1C1917',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+
+        /* Fade-in animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+
+        /* Pulse glow for CTA */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+            50% { box-shadow: 0 0 20px 8px rgba(249, 115, 22, 0.2); }
+        }
+        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #EA580C, #DC2626, #F97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hero overlay */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(28,25,23,0.75) 0%, rgba(154,52,18,0.5) 50%, rgba(28,25,23,0.7) 100%);
+        }
+
+        /* Card shine effect */
+        .card-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .card-shine::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%);
+            transition: transform 0.6s;
+            transform: translateX(-100%);
+        }
+        .card-shine:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Navbar scroll effect */
+        .navbar-scrolled {
+            backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.95) !important;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Badge bounce */
+        @keyframes badge-bounce {
+            0%, 100% { transform: scale(1) rotate(-2deg); }
+            50% { transform: scale(1.05) rotate(2deg); }
+        }
+        .badge-bounce { animation: badge-bounce 2s ease-in-out infinite; }
+
+        /* Mobile menu */
+        .mobile-menu { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.4s ease-out; 
+        }
+        .mobile-menu.open { 
+            max-height: 400px; 
+        }
+
+        /* Smooth image zoom */
+        .img-zoom {
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .img-zoom:hover {
+            transform: scale(1.05);
+        }
+
+        /* Section divider */
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #EA580C, #F97316);
+            border-radius: 2px;
+            margin: 0 auto;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FFF7ED; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#FB923C, #EA580C); border-radius: 4px; }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-warm-cream">
+
+    <!-- NAVBAR -->
+    <header id="navbar" class="bg-white/80 backdrop-blur-sm fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-red-600 rounded-full flex items-center justify-center text-white font-heading text-lg shadow-md group-hover:shadow-lg transition-shadow">
+                    🍜
+                </div>
+                <div>
+                    <div class="text-xl font-heading font-bold gradient-text tracking-tight">Bánh Tráng Sài Gòn</div>
+                    <div class="text-[10px] text-gray-400 font-medium tracking-widest uppercase">Chuẩn vị đường phố</div>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-gray-600">
+                <a href="#san-pham" class="hover:text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-500 after:transition-all hover:after:w-full">Sản Phẩm</a>
+                <a href="#ve-chung-toi" class="hover:text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-500 after:transition-all hover:after:w-full">Về Chúng Tôi</a>
+                <a href="#chung-nhan" class="hover:text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-500 after:transition-all hover:after:w-full">Chứng Nhận</a>
+                <a href="#doi-tac" class="hover:text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-500 after:transition-all hover:after:w-full">Đối Tác</a>
+                <a href="#tin-tuc" class="hover:text-brand-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-500 after:transition-all hover:after:w-full">Tin Tức</a>
+                <a href="https://zalo.me/" target="_blank" class="bg-gradient-to-r from-brand-500 to-red-500 text-white px-5 py-2.5 rounded-full hover:shadow-lg hover:shadow-brand-200 transition-all transform hover:-translate-y-0.5 text-xs tracking-wide">
+                    📞 Liên Hệ Zalo
+                </a>
+            </nav>
+            <!-- Mobile hamburger -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-brand-600 transition p-2" aria-label="Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#san-pham" class="block text-sm font-semibold text-gray-600 hover:text-brand-600 py-2">Sản Phẩm</a>
+                <a href="#ve-chung-toi" class="block text-sm font-semibold text-gray-600 hover:text-brand-600 py-2">Về Chúng Tôi</a>
+                <a href="#chung-nhan" class="block text-sm font-semibold text-gray-600 hover:text-brand-600 py-2">Chứng Nhận</a>
+                <a href="#doi-tac" class="block text-sm font-semibold text-gray-600 hover:text-brand-600 py-2">Đối Tác</a>
+                <a href="#tin-tuc" class="block text-sm font-semibold text-gray-600 hover:text-brand-600 py-2">Tin Tức</a>
+                <a href="https://zalo.me/" target="_blank" class="block bg-gradient-to-r from-brand-500 to-red-500 text-white text-center px-5 py-3 rounded-full text-sm font-bold">📞 Liên Hệ Zalo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SPACER for fixed navbar -->
+    <div class="h-[72px]"></div>
+
+    <!-- 1. HERO SECTION: Banner + 3 sản phẩm -->
+    <section id="san-pham">
+        <!-- Hero Banner -->
+        <div class="relative h-[60vh] md:h-[70vh] overflow-hidden">
+            <img src="images/banhtrang_hero.jpg" alt="Bánh tráng trộn Sài Gòn đường phố" class="w-full h-full object-cover">
+            <div class="hero-overlay absolute inset-0 flex items-center justify-center">
+                <div class="text-center px-4 fade-in">
+                    <div class="inline-block bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 mb-6">
+                        <span class="text-brand-200 text-sm font-medium tracking-widest uppercase">🔥 Thương hiệu #1 Sài Gòn</span>
+                    </div>
+                    <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                        Bánh Tráng Trộn<br>
+                        <span class="text-brand-300">Chuẩn Vị Đường Phố</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+                        Giòn rụm, đậm đà, bùng nổ vị giác – Trải nghiệm hương vị Sài Gòn chính hiệu ngay tại nhà bạn.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#san-pham-list" class="pulse-glow bg-gradient-to-r from-brand-500 to-red-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                            Khám Phá Ngay 👇
+                        </a>
+                        <a href="https://zalo.me/" target="_blank" class="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all">
+                            Đặt Hàng Qua Zalo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 Sản phẩm -->
+        <div id="san-pham-list" class="bg-gradient-to-b from-brand-50 to-white py-20 border-b border-brand-100">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <div class="fade-in mb-16">
+                    <span class="text-brand-500 font-bold text-sm tracking-widest uppercase">Menu đặc biệt</span>
+                    <h2 class="font-heading text-3xl md:text-5xl font-bold text-warm-dark mt-3 mb-4">3 Hương Vị Đặc Trưng</h2>
+                    <div class="section-divider mb-6"></div>
+                    <p class="text-lg text-gray-500 max-w-2xl mx-auto">Bộ ba sản phẩm bán chạy nhất – mỗi vị mang một cá tính riêng, cùng chuẩn chất lượng Bánh Tráng Sài Gòn.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                    <!-- Sản phẩm 1: Cổ Điển -->
+                    <div class="fade-in card-shine bg-white p-0 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group overflow-hidden">
+                        <div class="overflow-hidden rounded-t-2xl">
+                            <img src="images/banhtrang_classic.jpg" alt="Bánh tráng trộn vị cổ điển" class="w-full h-56 object-cover img-zoom">
+                        </div>
+                        <div class="p-6 text-left">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full">Truyền Thống</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">Vị Cổ Điển Truyền Thống</h3>
+                            <p class="text-sm text-gray-500 leading-relaxed mb-4">Bánh tráng giòn trộn tôm khô, đậu phộng, xoài xanh, rau răm và nước sốt me – đúng chuẩn vị Sài Gòn xưa.</p>
+                            <a href="https://zalo.me/" target="_blank" class="inline-flex items-center text-brand-600 text-sm font-bold hover:text-brand-700 transition group/link">
+                                Đặt hàng
+                                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Sản phẩm 2: Cay Nồng (Best Seller) -->
+                    <div class="fade-in card-shine bg-white p-0 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group overflow-hidden relative">
+                        <div class="badge-bounce absolute top-4 right-4 z-10 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
+                            🔥 BEST SELLER
+                        </div>
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-brand-500 to-yellow-500"></div>
+                        <div class="overflow-hidden rounded-t-2xl">
+                            <img src="images/banhtrang_spicy.jpg" alt="Bánh tráng trộn cay nồng" class="w-full h-56 object-cover img-zoom">
+                        </div>
+                        <div class="p-6 text-left">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full">Cay Đặc Biệt</span>
+                                <span class="text-yellow-500 text-xs">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">Vị Cay Nồng Sa Tế</h3>
+                            <p class="text-sm text-gray-500 leading-relaxed mb-4">Bùng nổ vị giác với sa tế cay nồng, tương ớt Sriracha, ớt hiểm tươi – dành cho tín đồ "nghiện cay" chính hiệu.</p>
+                            <a href="https://zalo.me/" target="_blank" class="inline-flex items-center text-red-600 text-sm font-bold hover:text-red-700 transition group/link">
+                                Đặt hàng
+                                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Sản phẩm 3: Phô Mai -->
+                    <div class="fade-in card-shine bg-white p-0 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group overflow-hidden">
+                        <div class="overflow-hidden rounded-t-2xl">
+                            <img src="images/banhtrang_cheese.jpg" alt="Bánh tráng trộn phô mai" class="w-full h-56 object-cover img-zoom">
+                        </div>
+                        <div class="p-6 text-left">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full">Fusion Mới</span>
+                                <span class="text-xs text-brand-500 font-bold">NEW ✨</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors">Vị Phô Mai Bùi Béo</h3>
+                            <p class="text-sm text-gray-500 leading-relaxed mb-4">Phủ đầy phô mai Mozzarella tan chảy, bột phô mai Cheddar thơm bùi – sự kết hợp táo bạo giữa truyền thống và hiện đại.</p>
+                            <a href="https://zalo.me/" target="_blank" class="inline-flex items-center text-yellow-600 text-sm font-bold hover:text-yellow-700 transition group/link">
+                                Đặt hàng
+                                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT US -->
+    <section id="ve-chung-toi" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 fade-in">
+                <span class="text-brand-500 font-bold text-sm tracking-widest uppercase">Câu chuyện của chúng tôi</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-warm-dark mt-3 mb-6 leading-tight">
+                    Từ Xe Đẩy Vỉa Hè<br>
+                    <span class="gradient-text">Đến Thương Hiệu Yêu Thích</span>
+                </h2>
+                <p class="text-gray-500 mb-5 leading-relaxed text-lg">
+                    Khởi nguồn từ một xe đẩy nhỏ trên con hẻm Sài Gòn, <strong class="text-gray-700">Bánh Tráng Sài Gòn</strong> mang trong mình tâm huyết gìn giữ và nâng tầm hương vị bánh tráng trộn truyền thống.
+                </p>
+                <p class="text-gray-500 leading-relaxed mb-8">
+                    Chúng tôi tin rằng – một phần bánh tráng ngon không chỉ nằm ở nguyên liệu, mà còn ở cái <em>tình</em> của người làm. Mỗi phần bánh đều được trộn bằng tay, nêm nếm tỉ mỉ, và giao đến tay bạn trong trạng thái giòn nhất, tươi nhất.
+                </p>
+                <div class="flex flex-wrap gap-8 mb-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-heading font-bold gradient-text">5+</div>
+                        <div class="text-xs text-gray-400 font-medium mt-1">Năm kinh nghiệm</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-heading font-bold gradient-text">50K+</div>
+                        <div class="text-xs text-gray-400 font-medium mt-1">Phần đã bán</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-heading font-bold gradient-text">4.9⭐</div>
+                        <div class="text-xs text-gray-400 font-medium mt-1">Đánh giá TB</div>
+                    </div>
+                </div>
+                <a href="https://zalo.me/" target="_blank" class="inline-flex items-center bg-gradient-to-r from-brand-500 to-brand-600 text-white px-6 py-3 rounded-full font-bold hover:shadow-lg hover:shadow-brand-200 transition-all transform hover:-translate-y-0.5">
+                    Nhắn Zalo Ngay
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+            <div class="md:w-1/2 fade-in">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-brand-200 to-red-200 rounded-2xl"></div>
+                    <img src="images/banhtrang_about.jpg" alt="Người làm bánh tráng trộn" class="relative rounded-2xl shadow-xl w-full">
+                    <!-- Floating badge -->
+                    <div class="animate-float absolute -bottom-6 -right-4 bg-white rounded-xl shadow-lg p-4 flex items-center gap-3">
+                        <div class="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center text-2xl">❤️</div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-800">Làm bằng cả trái tim</div>
+                            <div class="text-xs text-gray-400">Từ 2021 đến nay</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. NGUỒN GỐC NGUYÊN LIỆU -->
+    <section id="nguyen-lieu" class="py-24 bg-gradient-to-br from-green-50 via-emerald-50 to-brand-50 border-t border-b border-green-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-16">
+            <div class="md:w-1/2 fade-in">
+                <div class="relative">
+                    <div class="absolute -top-4 -right-4 w-full h-full bg-gradient-to-br from-green-200 to-emerald-200 rounded-2xl"></div>
+                    <img src="images/banhtrang_ingredients.jpg" alt="Nguyên liệu bánh tráng trộn tươi sạch" class="relative rounded-2xl shadow-xl w-full">
+                </div>
+            </div>
+            <div class="md:w-1/2 fade-in">
+                <span class="text-emerald-600 font-bold text-sm tracking-widest uppercase">Nguyên liệu chuẩn sạch</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-warm-dark mt-3 mb-6 leading-tight">
+                    Tươi Ngon Từ<br>
+                    <span class="text-emerald-600">Nông Trại Đến Bàn Ăn</span>
+                </h2>
+                <p class="text-gray-500 mb-6 leading-relaxed text-lg">
+                    Chúng tôi tự hào sử dụng 100% nguyên liệu được tuyển chọn kỹ lưỡng, đảm bảo mỗi phần bánh tráng trộn đều an toàn và thơm ngon nhất.
+                </p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3 bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                        <span class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 text-green-600 font-bold">✓</span>
+                        <div>
+                            <div class="font-bold text-gray-800 text-sm">Bánh tráng Tây Ninh chính gốc</div>
+                            <div class="text-xs text-gray-400 mt-1">Giòn tan, không phẩm màu, không chất bảo quản</div>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                        <span class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 text-green-600 font-bold">✓</span>
+                        <div>
+                            <div class="font-bold text-gray-800 text-sm">Tôm khô Phan Thiết loại 1</div>
+                            <div class="text-xs text-gray-400 mt-1">Tôm tự nhiên, phơi nắng truyền thống</div>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                        <span class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 text-green-600 font-bold">✓</span>
+                        <div>
+                            <div class="font-bold text-gray-800 text-sm">Rau sống, xoài tươi mỗi ngày</div>
+                            <div class="text-xs text-gray-400 mt-1">Nhập hàng ngày từ chợ đầu mối, rửa sạch 3 lần</div>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                        <span class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 text-green-600 font-bold">✓</span>
+                        <div>
+                            <div class="font-bold text-gray-800 text-sm">Nước sốt gia truyền tự pha chế</div>
+                            <div class="text-xs text-gray-400 mt-1">Công thức độc quyền, không MSG</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CHỨNG NHẬN & GIẢI THƯỞNG -->
+    <section id="chung-nhan" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="fade-in mb-16">
+                <span class="text-brand-500 font-bold text-sm tracking-widest uppercase">Uy tín & Chất lượng</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-warm-dark mt-3 mb-4">Chứng Nhận & Giải Thưởng</h2>
+                <div class="section-divider mb-6"></div>
+                <p class="text-lg text-gray-500 max-w-xl mx-auto">Khẳng định chất lượng qua các tiêu chuẩn khắt khe nhất ngành thực phẩm</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-in">
+                <div class="group p-8 bg-gradient-to-b from-white to-brand-50 border border-brand-100 rounded-2xl flex flex-col items-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-20 h-20 bg-gradient-to-br from-brand-100 to-brand-200 rounded-2xl flex items-center justify-center text-brand-700 mb-4 text-sm font-bold group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">🏅</span>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm">ATTP</h4>
+                    <p class="text-xs text-gray-400 mt-2 leading-relaxed">Giấy chứng nhận An Toàn Thực Phẩm</p>
+                </div>
+                <div class="group p-8 bg-gradient-to-b from-white to-green-50 border border-green-100 rounded-2xl flex flex-col items-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">🌿</span>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm">Nguyên Liệu Sạch</h4>
+                    <p class="text-xs text-gray-400 mt-2 leading-relaxed">Cam kết không chất bảo quản</p>
+                </div>
+                <div class="group p-8 bg-gradient-to-b from-white to-yellow-50 border border-yellow-100 rounded-2xl flex flex-col items-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">🏆</span>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm">Top Ẩm Thực 2026</h4>
+                    <p class="text-xs text-gray-400 mt-2 leading-relaxed">Người tiêu dùng bình chọn</p>
+                </div>
+                <div class="group p-8 bg-gradient-to-b from-white to-blue-50 border border-blue-100 rounded-2xl flex flex-col items-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">⭐</span>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm">4.9/5 Đánh Giá</h4>
+                    <p class="text-xs text-gray-400 mt-2 leading-relaxed">Trên 5000+ reviews từ khách hàng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ĐỐI TÁC CHIẾN LƯỢC -->
+    <section id="doi-tac" class="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="fade-in mb-16">
+                <span class="text-brand-500 font-bold text-sm tracking-widest uppercase">Hệ thống phân phối</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-warm-dark mt-3 mb-4">Đối Tác & Kênh Bán Hàng</h2>
+                <div class="section-divider mb-6"></div>
+                <p class="text-lg text-gray-500 max-w-xl mx-auto">Bánh Tráng Sài Gòn có mặt tại các nền tảng giao hàng và chuỗi cửa hàng tiện lợi</p>
+            </div>
+
+            <div class="fade-in flex flex-wrap justify-center gap-6 md:gap-10 items-center">
+                <div class="group bg-white rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                    <div class="text-2xl font-bold text-green-600 group-hover:scale-110 transition-transform inline-block">GrabFood</div>
+                </div>
+                <div class="group bg-white rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                    <div class="text-2xl font-bold text-brand-600 group-hover:scale-110 transition-transform inline-block">ShopeeFood</div>
+                </div>
+                <div class="group bg-white rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                    <div class="text-2xl font-bold text-teal-600 group-hover:scale-110 transition-transform inline-block">Baemin</div>
+                </div>
+                <div class="group bg-white rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                    <div class="text-2xl font-bold text-red-600 group-hover:scale-110 transition-transform inline-block">GoFood</div>
+                </div>
+                <div class="group bg-white rounded-2xl px-8 py-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                    <div class="text-2xl font-bold text-blue-600 group-hover:scale-110 transition-transform inline-block">Zalo Shop</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TIN TỨC & SỰ KIỆN -->
+    <section id="tin-tuc" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="fade-in mb-16">
+                <span class="text-brand-500 font-bold text-sm tracking-widest uppercase">Bảng tin</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-warm-dark mt-3 mb-4">Tin Tức & Sự Kiện</h2>
+                <div class="section-divider mb-6"></div>
+                <p class="text-lg text-gray-500 max-w-xl mx-auto">Cập nhật những hoạt động mới nhất từ Bánh Tráng Sài Gòn</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <!-- Bài 1 -->
+                <div class="fade-in group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                    <div class="overflow-hidden">
+                        <img src="images/banhtrang_event.jpg" alt="Sự kiện lễ hội ẩm thực" class="w-full h-52 object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-full">SỰ KIỆN</span>
+                            <span class="text-xs text-gray-400">20/08/2026</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2 group-hover:text-brand-600 transition-colors leading-snug">Bùng nổ tại Lễ hội Ẩm thực Đường phố Sài Gòn 2026</h4>
+                        <p class="text-sm text-gray-500 mb-4 leading-relaxed">Hàng ngàn bạn trẻ xếp hàng check-in và thưởng thức bánh tráng trộn miễn phí tại gian hàng của chúng tôi.</p>
+                        <a href="#" class="inline-flex items-center text-brand-600 text-sm font-bold hover:text-brand-700 transition group/link">
+                            Đọc tiếp
+                            <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bài 2 -->
+                <div class="fade-in group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                    <div class="overflow-hidden">
+                        <img src="images/banhtrang_review.jpg" alt="Review trên mạng xã hội" class="w-full h-52 object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full">REVIEW</span>
+                            <span class="text-xs text-gray-400">15/08/2026</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2 group-hover:text-purple-600 transition-colors leading-snug">Top 10 Food Reviewer đồng loạt "review bão" Bánh Tráng Sài Gòn</h4>
+                        <p class="text-sm text-gray-500 mb-4 leading-relaxed">Các food blogger hàng đầu TikTok và YouTube đã có những đánh giá cực kỳ tích cực về chất lượng sản phẩm.</p>
+                        <a href="#" class="inline-flex items-center text-purple-600 text-sm font-bold hover:text-purple-700 transition group/link">
+                            Đọc tiếp
+                            <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bài 3 -->
+                <div class="fade-in group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                    <div class="overflow-hidden">
+                        <img src="images/banhtrang_award.jpg" alt="Giải thưởng ẩm thực" class="w-full h-52 object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full">GIẢI THƯỞNG</span>
+                            <span class="text-xs text-gray-400">01/08/2026</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2 group-hover:text-yellow-600 transition-colors leading-snug">Vinh dự nhận giải "Thương hiệu Ẩm thực Đường phố Xuất sắc 2026"</h4>
+                        <p class="text-sm text-gray-500 mb-4 leading-relaxed">Thành quả cho những nỗ lực không ngừng trong việc nâng tầm ẩm thực đường phố Việt Nam lên một tầm cao mới.</p>
+                        <a href="#" class="inline-flex items-center text-yellow-600 text-sm font-bold hover:text-yellow-700 transition group/link">
+                            Đọc tiếp
+                            <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="relative py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-600 via-red-600 to-brand-700"></div>
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        <div class="relative max-w-4xl mx-auto px-4 text-center fade-in">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6">
+                Thèm Bánh Tráng Trộn Rồi? 🤤
+            </h2>
+            <p class="text-xl text-brand-100 mb-10 max-w-2xl mx-auto">
+                Đặt hàng ngay qua Zalo – Giao tận nơi trong 30 phút khu vực nội thành TP.HCM!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://zalo.me/" target="_blank" class="pulse-glow bg-white text-brand-600 px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 hover:bg-brand-50">
+                    📱 Chat Zalo Ngay
+                </a>
+                <a href="tel:0901234567" class="border-2 border-white/40 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                    📞 Gọi: 0901 234 567
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer class="bg-warm-dark text-gray-400 pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <!-- Logo & Thông tin -->
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-red-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                        🍜
+                    </div>
+                    <div>
+                        <div class="text-2xl font-heading font-bold text-white">Bánh Tráng Sài Gòn</div>
+                        <div class="text-xs text-gray-500 tracking-widest uppercase">Chuẩn vị đường phố</div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mb-6 leading-relaxed max-w-md">
+                    Thương hiệu bánh tráng trộn hàng đầu Sài Gòn – Nơi hương vị truyền thống gặp gỡ sáng tạo hiện đại. Mỗi phần bánh là một tác phẩm nghệ thuật ẩm thực.
+                </p>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center gap-3">
+                        <span class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-brand-400">📍</span>
+                        <span><strong class="text-gray-300">Địa chỉ:</strong> 123 Nguyễn Huệ, Quận 1, TP.HCM</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-brand-400">📞</span>
+                        <span><strong class="text-gray-300">Hotline:</strong> 0901 234 567</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-brand-400">✉️</span>
+                        <span><strong class="text-gray-300">Email:</strong> hello@banhtrangsaigon.vn</span>
+                    </li>
+                </ul>
+                <!-- Social Media -->
+                <div class="flex space-x-3 mt-8">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-brand-600 transition-all text-white text-sm font-bold hover:-translate-y-1 hover:shadow-lg" aria-label="Facebook">FB</a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 transition-all text-white text-sm font-bold hover:-translate-y-1 hover:shadow-lg" aria-label="Instagram">IG</a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-black transition-all text-white text-sm font-bold hover:-translate-y-1 hover:shadow-lg" aria-label="TikTok">TT</a>
+                    <a href="https://zalo.me/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-blue-600 transition-all text-white text-sm font-bold hover:-translate-y-1 hover:shadow-lg" aria-label="Zalo">ZL</a>
+                </div>
+            </div>
+
+            <!-- Mục lục -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-sm tracking-wider uppercase">Khám Phá</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#san-pham" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Sản Phẩm</a></li>
+                    <li><a href="#ve-chung-toi" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Về Chúng Tôi</a></li>
+                    <li><a href="#nguyen-lieu" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Nguồn Gốc Nguyên Liệu</a></li>
+                    <li><a href="#chung-nhan" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Chứng Nhận & Giải Thưởng</a></li>
+                    <li><a href="#doi-tac" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Đối Tác</a></li>
+                    <li><a href="#tin-tuc" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Tin Tức</a></li>
+                </ul>
+            </div>
+
+            <!-- Hỗ trợ -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-sm tracking-wider uppercase">Hỗ Trợ</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Chính Sách Giao Hàng</a></li>
+                    <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Chính Sách Đổi Trả</a></li>
+                    <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Câu Hỏi Thường Gặp</a></li>
+                    <li><a href="#" class="hover:text-brand-400 transition-colors flex items-center gap-2"><span class="text-brand-600">›</span> Liên Hệ Hợp Tác</a></li>
+                </ul>
+                <!-- Giờ mở cửa -->
+                <div class="mt-8 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                    <div class="text-xs text-gray-500 font-bold tracking-wider uppercase mb-2">🕐 Giờ mở cửa</div>
+                    <div class="text-sm text-gray-300">Hàng ngày: <strong class="text-brand-400">10:00 – 22:00</strong></div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-gray-800 text-center">
+            <p class="text-xs text-gray-600">© 2026 Bánh Tráng Sài Gòn. All rights reserved. Made with ❤️ in Saigon.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Zalo button -->
+    <a href="https://zalo.me/" target="_blank" class="fixed bottom-6 right-6 z-50 bg-blue-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-blue-600 transition-all hover:scale-110 pulse-glow group" aria-label="Chat Zalo">
+        <span class="text-2xl">💬</span>
+        <span class="absolute -top-10 right-0 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">Chat Zalo ngay!</span>
+    </a>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="fixed bottom-6 left-6 z-50 bg-brand-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-brand-600 transition-all hover:scale-110 opacity-0 translate-y-4 pointer-events-none" aria-label="Về đầu trang">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Fade-in on scroll (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Stagger animation for sibling elements
+                    const siblings = entry.target.parentElement.querySelectorAll('.fade-in');
+                    const siblingIndex = Array.from(siblings).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, siblingIndex * 150);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Back to top button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop.style.opacity = '1';
+                backToTop.style.transform = 'translateY(0)';
+                backToTop.style.pointerEvents = 'auto';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.transform = 'translateY(16px)';
+                backToTop.style.pointerEvents = 'none';
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
