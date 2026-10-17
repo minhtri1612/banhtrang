@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us – RiceyMix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"Playfair Display"', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: { 500: '#F97316', 600: '#EA580C' },
+                        warm: { cream: '#FFF8F0', dark: '#1C1917' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body text-gray-800 bg-warm-cream">
+    <header class="bg-white sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="images/logo.png" alt="RiceyMix" class="h-14 w-auto">
+            </a>
+            <div class="flex items-center gap-5">
+                <a href="index.html" data-i18n="back" class="text-sm font-semibold text-gray-500 hover:text-brand-600">← Trang chủ</a>
+                <div class="flex items-center text-sm font-bold tracking-wide">
+                    <button type="button" data-set-lang="en" class="px-1 text-gray-400">EN</button>
+                    <span class="text-gray-300">|</span>
+                    <button type="button" data-set-lang="vi" class="px-1 text-brand-600">VI</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-16">
+        <p data-i18n="kicker" class="text-brand-600 font-bold tracking-widest uppercase text-sm">About us</p>
+        <h1 data-i18n="title" class="font-heading text-4xl md:text-5xl font-bold text-warm-dark mt-3">Tổng quan về doanh nghiệp</h1>
+        <div class="mt-4 mb-8 h-1 w-14 rounded-full bg-gradient-to-r from-brand-600 to-brand-500"></div>
+        <div class="space-y-5 text-lg leading-8 text-gray-700">
+            <p data-i18n="overview1"><strong class="text-warm-dark">RICEYMIX JOINT STOCK COMPANY</strong> là doanh nghiệp được hình thành từ dự án khởi nghiệp của nhóm 9 sinh viên với mong muốn đưa văn hóa ẩm thực đường phố Việt Nam đến gần hơn với người tiêu dùng quốc tế. Lấy bánh tráng trộn làm sản phẩm khởi đầu, RiceyMix phát triển các dòng bánh tráng tự trộn đóng gói với ba hương vị: kimchi, rong biển cháy tỏi và phô mai, hướng đến thị trường Hàn Quốc.</p>
+            <p data-i18n="overview2">Không chỉ cung cấp một món ăn vặt tiện lợi, RiceyMix mong muốn giới thiệu nét đặc trưng của ẩm thực Việt Nam thông qua sản phẩm phù hợp với nhịp sống hiện đại và khẩu vị đa dạng. Doanh nghiệp hướng đến hai nhóm khách hàng chính: cộng đồng người Việt đang sinh sống tại Hàn Quốc và người tiêu dùng Hàn Quốc yêu thích trải nghiệm những món ăn mới.</p>
+        </div>
+
+        <section class="mt-16">
+            <h2 data-i18n="visionTitle" class="font-heading text-3xl font-bold text-warm-dark">Tầm nhìn</h2>
+            <p data-i18n="vision" class="mt-4 text-lg leading-8 text-gray-700">Trở thành thương hiệu bánh tráng ăn vặt Việt Nam có khả năng tiếp cận thị trường quốc tế, góp phần đưa những món ăn đường phố quen thuộc của Việt Nam trở thành lựa chọn ăn vặt được người tiêu dùng nhiều quốc gia biết đến và yêu thích.</p>
+        </section>
+
+        <section class="mt-14">
+            <h2 data-i18n="missionTitle" class="font-heading text-3xl font-bold text-warm-dark">Sứ mệnh</h2>
+            <ul class="mt-6 space-y-4">
+                <li class="bg-white rounded-2xl p-5 shadow-sm">
+                    <h3 data-i18n="m1" class="font-bold text-warm-dark">Lan tỏa văn hóa ẩm thực Việt Nam</h3>
+                    <p data-i18n="m1s" class="mt-1 text-gray-600 leading-relaxed">Đưa hương vị bánh tráng trộn đến gần hơn với bạn bè quốc tế thông qua sản phẩm đóng gói hiện đại.</p>
+                </li>
+                <li class="bg-white rounded-2xl p-5 shadow-sm">
+                    <h3 data-i18n="m2" class="font-bold text-warm-dark">Kết nối người Việt xa quê</h3>
+                    <p data-i18n="m2s" class="mt-1 text-gray-600 leading-relaxed">Giúp cộng đồng người Việt ở nước ngoài dễ dàng tìm lại hương vị quen thuộc gắn với tuổi thơ và thanh xuân.</p>
+                </li>
+                <li class="bg-white rounded-2xl p-5 shadow-sm">
+                    <h3 data-i18n="m3" class="font-bold text-warm-dark">Thích nghi với thị trường quốc tế</h3>
+                    <p data-i18n="m3s" class="mt-1 text-gray-600 leading-relaxed">Phát triển hương vị phù hợp với khẩu vị địa phương nhưng vẫn giữ được nét đặc trưng của bánh tráng Việt Nam.</p>
+                </li>
+                <li class="bg-white rounded-2xl p-5 shadow-sm">
+                    <h3 data-i18n="m4" class="font-bold text-warm-dark">Cam kết chất lượng</h3>
+                    <p data-i18n="m4s" class="mt-1 text-gray-600 leading-relaxed">Chú trọng nguồn nguyên liệu, quy trình sản xuất, an toàn thực phẩm và thông tin sản phẩm minh bạch nhằm mang đến trải nghiệm an tâm cho người tiêu dùng.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mt-14 mb-8">
+            <h2 data-i18n="valuesTitle" class="font-heading text-3xl font-bold text-warm-dark">Giá trị cốt lõi</h2>
+            <ul class="mt-6 space-y-4">
+                <li class="bg-white rounded-2xl p-5 shadow-sm">
+                    <h3 data-i18n="v1" class="font-bold text-warm-dark">Bản sắc Việt Nam</h3>
+                    <p data-i18n="v1s" class="mt-1 text-gray-600 leading-relaxed">Giữ gìn nét đặc trưng của món bánh tráng trộn và truyền tải câu chuyện ẩm thực Việt Nam qua từng sản phẩm.</p>
+                </li>
+                <li class="bg-white rounded-2xl p-5 shadow-sm">
+                    <h3 data-i18n="v2" class="font-bold text-warm-dark">Chất lượng và sự an tâm</h3>
+                    <p data-i18n="v2s" class="mt-1 text-gray-600 leading-relaxed">Đặt an toàn thực phẩm, chất lượng nguyên liệu và tính nhất quán của sản phẩm làm nền tảng cho niềm tin của khách hàng.</p>
+                </li>
+                <li class="bg-white rounded-2xl p-5 shadow-sm">
+                    <h3 data-i18n="v3" class="font-bold text-warm-dark">Sáng tạo và thích nghi</h3>
+                    <p data-i18n="v3s" class="mt-1 text-gray-600 leading-relaxed">Không ngừng phát triển hương vị, cách đóng gói và trải nghiệm sử dụng để đáp ứng nhu cầu của các thị trường khác nhau.</p>
+                </li>
+                <li class="bg-white rounded-2xl p-5 shadow-sm">
+                    <h3 data-i18n="v4" class="font-bold text-warm-dark">Thấu hiểu và kết nối</h3>
+                    <p data-i18n="v4s" class="mt-1 text-gray-600 leading-relaxed">Lấy trải nghiệm của người tiêu dùng làm trọng tâm, đặc biệt là mong muốn được thưởng thức hương vị quê nhà của những người Việt sống xa đất nước.</p>
+                </li>
+                <li class="bg-white rounded-2xl p-5 shadow-sm">
+                    <h3 data-i18n="v5" class="font-bold text-warm-dark">Khát vọng vươn ra thế giới</h3>
+                    <p data-i18n="v5s" class="mt-1 text-gray-600 leading-relaxed">Nuôi dưỡng tinh thần chủ động, học hỏi và hợp tác để từng bước đưa sản phẩm Việt Nam đến với thị trường quốc tế.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        const I18N = {
+            vi: {
+                metaTitle: "About us – RiceyMix",
+                back: "← Trang chủ",
+                kicker: "About us",
+                title: "Tổng quan về doanh nghiệp",
+                overview1: "RICEYMIX JOINT STOCK COMPANY là doanh nghiệp được hình thành từ dự án khởi nghiệp của nhóm 9 sinh viên với mong muốn đưa văn hóa ẩm thực đường phố Việt Nam đến gần hơn với người tiêu dùng quốc tế. Lấy bánh tráng trộn làm sản phẩm khởi đầu, RiceyMix phát triển các dòng bánh tráng tự trộn đóng gói với ba hương vị: kimchi, rong biển cháy tỏi và phô mai, hướng đến thị trường Hàn Quốc.",
+                overview2: "Không chỉ cung cấp một món ăn vặt tiện lợi, RiceyMix mong muốn giới thiệu nét đặc trưng của ẩm thực Việt Nam thông qua sản phẩm phù hợp với nhịp sống hiện đại và khẩu vị đa dạng. Doanh nghiệp hướng đến hai nhóm khách hàng chính: cộng đồng người Việt đang sinh sống tại Hàn Quốc và người tiêu dùng Hàn Quốc yêu thích trải nghiệm những món ăn mới.",
+                visionTitle: "Tầm nhìn",
+                vision: "Trở thành thương hiệu bánh tráng ăn vặt Việt Nam có khả năng tiếp cận thị trường quốc tế, góp phần đưa những món ăn đường phố quen thuộc của Việt Nam trở thành lựa chọn ăn vặt được người tiêu dùng nhiều quốc gia biết đến và yêu thích.",
+                missionTitle: "Sứ mệnh",
+                m1: "Lan tỏa văn hóa ẩm thực Việt Nam",
+                m1s: "Đưa hương vị bánh tráng trộn đến gần hơn với bạn bè quốc tế thông qua sản phẩm đóng gói hiện đại.",
+                m2: "Kết nối người Việt xa quê",
+                m2s: "Giúp cộng đồng người Việt ở nước ngoài dễ dàng tìm lại hương vị quen thuộc gắn với tuổi thơ và thanh xuân.",
+                m3: "Thích nghi với thị trường quốc tế",
+                m3s: "Phát triển hương vị phù hợp với khẩu vị địa phương nhưng vẫn giữ được nét đặc trưng của bánh tráng Việt Nam.",
+                m4: "Cam kết chất lượng",
+                m4s: "Chú trọng nguồn nguyên liệu, quy trình sản xuất, an toàn thực phẩm và thông tin sản phẩm minh bạch nhằm mang đến trải nghiệm an tâm cho người tiêu dùng.",
+                valuesTitle: "Giá trị cốt lõi",
+                v1: "Bản sắc Việt Nam",
+                v1s: "Giữ gìn nét đặc trưng của món bánh tráng trộn và truyền tải câu chuyện ẩm thực Việt Nam qua từng sản phẩm.",
+                v2: "Chất lượng và sự an tâm",
+                v2s: "Đặt an toàn thực phẩm, chất lượng nguyên liệu và tính nhất quán của sản phẩm làm nền tảng cho niềm tin của khách hàng.",
+                v3: "Sáng tạo và thích nghi",
+                v3s: "Không ngừng phát triển hương vị, cách đóng gói và trải nghiệm sử dụng để đáp ứng nhu cầu của các thị trường khác nhau.",
+                v4: "Thấu hiểu và kết nối",
+                v4s: "Lấy trải nghiệm của người tiêu dùng làm trọng tâm, đặc biệt là mong muốn được thưởng thức hương vị quê nhà của những người Việt sống xa đất nước.",
+                v5: "Khát vọng vươn ra thế giới",
+                v5s: "Nuôi dưỡng tinh thần chủ động, học hỏi và hợp tác để từng bước đưa sản phẩm Việt Nam đến với thị trường quốc tế."
+            },
+            en: {
+                metaTitle: "About us – RiceyMix",
+                back: "← Home",
+                kicker: "About us",
+                title: "Company overview",
+                overview1: "RICEYMIX JOINT STOCK COMPANY grew out of a startup project by a group of 9 students who wanted to bring Vietnamese street-food culture closer to international consumers. Starting with mixed rice paper, RiceyMix makes packaged mix-it-yourself rice paper in three flavors: kimchi, garlic seaweed, and cheese, aimed at the Korean market.",
+                overview2: "More than a convenient snack, RiceyMix wants to introduce what is distinctive about Vietnamese food through products that fit modern life and a range of tastes. The company focuses on two groups: Vietnamese people living in Korea, and Korean consumers who enjoy trying something new.",
+                visionTitle: "Vision",
+                vision: "To become a Vietnamese rice-paper snack brand that can reach international markets, and help familiar Vietnamese street foods become a snack people in many countries know and enjoy.",
+                missionTitle: "Mission",
+                m1: "Share Vietnamese food culture",
+                m1s: "Bring the taste of mixed rice paper closer to friends abroad through modern packaged products.",
+                m2: "Connect Vietnamese people far from home",
+                m2s: "Help Vietnamese communities overseas find again a familiar flavor tied to childhood and youth.",
+                m3: "Adapt to international markets",
+                m3s: "Develop flavors that suit local taste while keeping what is distinctive about Vietnamese rice paper.",
+                m4: "Commit to quality",
+                m4s: "Care about ingredients, production, food safety, and clear product information so customers can enjoy it with confidence.",
+                valuesTitle: "Core values",
+                v1: "Vietnamese identity",
+                v1s: "Keep what is distinctive about mixed rice paper and tell the story of Vietnamese food in every product.",
+                v2: "Quality and confidence",
+                v2s: "Food safety, ingredient quality, and consistency are the basis of customer trust.",
+                v3: "Creativity and adaptation",
+                v3s: "Keep developing flavors, packaging, and how the product is used so it fits different markets.",
+                v4: "Understanding and connection",
+                v4s: "Put the customer's experience first, especially the wish of Vietnamese people abroad to taste home again.",
+                v5: "Ambition to reach the world",
+                v5s: "Stay proactive, keep learning, and work with others so Vietnamese products can step into international markets."
+            }
+        };
+
+        function applyLang(lang) {
+            const dict = I18N[lang] || I18N.vi;
+            document.documentElement.lang = lang === "en" ? "en" : "vi";
+            document.title = dict.metaTitle;
+            document.querySelectorAll("[data-i18n]").forEach((el) => {
+                const value = dict[el.dataset.i18n];
+                if (value != null) el.textContent = value;
+            });
+            document.querySelectorAll("[data-set-lang]").forEach((btn) => {
+                const on = btn.dataset.setLang === lang;
+                btn.classList.toggle("text-brand-600", on);
+                btn.classList.toggle("text-gray-400", !on);
+            });
+            try { localStorage.setItem("lang", lang); } catch (e) {}
+        }
+
+        document.querySelectorAll("[data-set-lang]").forEach((btn) => {
+            btn.addEventListener("click", () => applyLang(btn.dataset.setLang));
+        });
+
+        let saved = "vi";
+        try { saved = localStorage.getItem("lang") || "vi"; } catch (e) {}
+        if (saved === "en") applyLang("en");
+    </script>
+</body>
+</html>
